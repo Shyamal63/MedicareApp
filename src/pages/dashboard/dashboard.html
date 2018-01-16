@@ -1,0 +1,99 @@
+<ion-header>
+    <ion-navbar>
+      <ion-title>Dashboard</ion-title>
+      <ion-buttons right>
+        <button style="background:none;"></button>
+      </ion-buttons>
+    </ion-navbar>
+  </ion-header>
+  
+  
+  <ion-content class="dashContent">
+    <ion-card>
+      <!-- <ion-item>
+        <ion-avatar item-start>
+          <img src="../../assets/imgs/avatar-ts-woody.png">
+        </ion-avatar>
+        <h2>{{ dashboardlist? dashboardlist.FirstName + ' '+dashboardlist.LastName : '' }}</h2>
+        <p>{{ dashboardlist? dashboardlist.Gender + ', ' + dashboardlist.Age : '' }}</p>
+      </ion-item> -->
+    </ion-card>
+    <ion-card class="dashCard">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <div class="dashCardContent">
+              <span><ion-icon name="locate"></ion-icon></span>
+              Surveys
+            </div>          
+          </ion-col>
+          <ion-col>
+            <div class="dashCardContent">
+              <span><ion-icon name="call"></ion-icon></span>
+              Calls
+            </div>
+          </ion-col>
+          <ion-col>
+            <div class="dashCardContent">
+              <span><ion-icon name="mail"></ion-icon></span>
+              Messages
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+    <ion-card class="textCard">
+      Self care Management
+    </ion-card>
+    <ion-card class="dashGridCard">
+      <ion-grid class="dashGridBlock">
+        <ion-row>
+          <ion-col col-4>
+            <div class="gridBlockContent">
+              <h3>Blood Pressure</h3>
+              <span class="heartSpan">
+                <ion-icon name="heart"></ion-icon>
+              </span>            
+              <h2>120/80</h2>
+              <p>27Dec, 2017 <span>02:30pm</span></p>
+              <button ion-button class="detailBtn">Details</button>
+            </div>
+          </ion-col>
+          <ion-col col-4>
+            <div class="gridBlockContent">
+              <h3>Blood Glucose</h3>
+              <span class="meterSpan">
+                <ion-icon name="speedometer"></ion-icon>
+              </span>            
+              <h2>167mg/dl</h2>
+              <p>27Dec, 2017 <span>02:30pm</span></p>
+              <button ion-button class="detailBtn">Details</button>
+            </div>
+          </ion-col>
+          <ion-col col-4>
+            <div class="gridBlockContent">
+              <h3>SPO2</h3>
+              <span class="pulseSpan">
+                <ion-icon name="pulse"></ion-icon>
+              </span>            
+              <h2>99%</h2>
+              <p>27Dec, 2017 <span>02:30pm</span></p>
+              <button ion-button class="detailBtn">Details</button>
+            </div>
+          </ion-col>
+          <ion-col col-4>
+              <div class="gridBlockContent">
+                <h3>Weight</h3>
+                <span class="warnSpan">
+                  <ion-icon name="warning"></ion-icon>
+                </span>              
+                <h2>78kg</h2>
+                <p>27Dec, 2017 <span>02:30pm</span></p>
+                <button ion-button class="detailBtn">Details</button>
+              </div>
+            </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+  </ion-content>
+  

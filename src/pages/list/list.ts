@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, LoadingController,PopoverController } from 'ionic-angular';
+
+import { DashboardPage } from '../dashboard/dashboard'
+
+import {UserServiceProvider} from '../../providers/user-service/user-service';
 
 @Component({
   selector: 'page-list',
@@ -8,30 +12,78 @@ import { NavController, NavParams } from 'ionic-angular';
 export class ListPage {
   selectedItem: any;
   icons: string[];
-  items: Array<{title: string, note: string, icon: string}>;
+  
+  public patientlist:any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    // If we navigated to this page, we will have an item available as a nav param
-    this.selectedItem = navParams.get('item');
+  public othermenu:boolean;
+  public toggled: boolean = false;
 
-    // Let's populate this page with some filler content for funzies
-    this.icons = ['flask', 'wifi', 'beer', 'football', 'basketball', 'paper-plane',
-    'american-football', 'boat', 'bluetooth', 'build'];
-
-    this.items = [];
-    for (let i = 1; i < 11; i++) {
-      this.items.push({
-        title: 'Item ' + i,
-        note: 'This is item #' + i,
-        icon: this.icons[Math.floor(Math.random() * this.icons.length)]
-      });
+  constructor(public navCtrl: NavController,public popoverCtrl: PopoverController, public navParams: NavParams,public loadingCtrl:LoadingController, public userService:UserServiceProvider) {
+         this.toggled=false;
+    if(window.innerWidth >= 768){
+      this.othermenu = false;
+    }else{
+      this.othermenu = true;
     }
-  }
-
-  itemTapped(event, item) {
-    // That's right, we're pushing to ourselves!
-    this.navCtrl.push(ListPage, {
-      item: item
+    let loading = this.loadingCtrl.create({
+      content: 'Please wait...'
     });
-  }
+  
+    loading.present();
+
+
+    this.initializeItems();
+    loading.dismiss();
+   
 }
+initializeItems() {
+  let res = this.navParams.get('data');
+  console.log(res[0]);
+ this.userService.getList(res[0].AuthtokenKey, res[0].id).subscribe((response:any)=>{
+  this.patientlist = response;
+  console.log(response);
+ 
+})
+}
+toLowerCase(){
+  
+}
+  getItems(ev) {
+    // this.initializeItems();
+    let val = ev.target.value;
+    console.log(val);
+    if (val && val.trim() != '') {
+      this.patientlist = this.patientlist.filter((item) => {
+        return (item.FirstName.toLowerCase().indexOf(val.toLowerCase()) > -1);
+      })
+    }
+    else{
+      this.initializeItems();
+      console.log(this.initializeItems());
+    } 
+  }
+  public toggle(): void {
+    this.toggled = true;
+    console.log('hiiii');
+ }
+
+ test(event){
+  this.toggled = false;
+  console.log('hello');
+  this.initializeItems();
+ }
+}
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+

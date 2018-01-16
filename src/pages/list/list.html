@@ -1,23 +1,31 @@
 <ion-header>
   <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>List</ion-title>
+    <ion-buttons left>
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>    
+    <ion-title>Patient List</ion-title>
+    <ion-buttons end >
+      <div>
+       <ion-searchbar *ngIf="toggled == true" (ionInput)="getItems($event)" (ionClear)="test($event)"></ion-searchbar>
+      </div>
+    </ion-buttons>
+    <ion-buttons end (click)="toggle()" *ngIf="toggled == false">
+        <button ion-button icon-only >
+          <ion-icon name="search"></ion-icon>
+        </button>
+      </ion-buttons>  
   </ion-navbar>
 </ion-header>
-
 <ion-content>
-  <ion-list>
-    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
-      <ion-icon [name]="item.icon" item-start></ion-icon>
-      {{item.title}}
-      <div class="item-note" item-end>
-        {{item.note}}
-      </div>
-    </button>
-  </ion-list>
-  <div *ngIf="selectedItem" padding>
-    You navigated here from <b>{{selectedItem.title}}</b>
-  </div>
+   <ion-list class="patientList">
+        <ion-item *ngFor="let patient of patientlist;"> 
+          <ion-avatar item-start>
+            <img src="assets/imgs/userImage.jpg">
+          </ion-avatar>
+          <h2>{{patient? patient.FirstName : ""}}</h2>
+          <p>{{ patient? patient.Gender?patient.Gender+', ' + patient.Age :''  + patient.Age : '' }}</p>
+        </ion-item>
+      </ion-list>
 </ion-content>

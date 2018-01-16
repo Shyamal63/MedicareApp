@@ -1,0 +1,14 @@
+<ion-list class="formList">
+    <div class="logoDiv">
+     <ion-navbar><span><img  src="assets/imgs/heartlogo.png"></span></ion-navbar>
+      <h4>Care App</h4>
+    </div>
+    <ion-item>
+      <ion-input type="text" placeholder="Username" [(ngModel)]="userid" data-tap-disabled="false" disabled="false"></ion-input>
+    </ion-item>  
+    <ion-item>
+      <ion-input type="password" placeholder="Password" [(ngModel)]="password" data-tap-disabled="false" disabled="false"></ion-input>
+    </ion-item>
+    <button ion-button block class="submitBtn" (click)="goLogin()">Login</button>
+    <p><span>Register </span> | <span (click)="forgetPrompt()">Forgot password?</span></p>
+  </ion-list>
