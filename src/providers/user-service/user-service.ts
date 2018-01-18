@@ -32,13 +32,14 @@ export class UserServiceProvider {
       "AuthtokenKey": "",
       "expiry": "2017-12-27T03:40:53.911Z"
     }
-  //  let body =  {
-  //     "userid": userid,
-  //     "password": password,
-  //     "AuthtokenKey": authkey,
-  //     "expiry": expdate
-  //   }
-
+    /*
+  let body =  {
+       "userid": userid,
+       "password": password,
+       "AuthtokenKey": authkey,
+       "expiry": expdate
+     }
+*/
   let headers = new Headers({'Content-Type': 'application/json'}); 
   let options  = new RequestOptions({ headers: headers }); 
   return this.http.post(this.loginUrl, body , options) 

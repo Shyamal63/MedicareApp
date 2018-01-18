@@ -20,11 +20,11 @@ export class ListPage {
 
   constructor(public navCtrl: NavController,public popoverCtrl: PopoverController, public navParams: NavParams,public loadingCtrl:LoadingController, public userService:UserServiceProvider) {
          this.toggled=false;
-    if(window.innerWidth >= 768){
+    /*if(window.innerWidth >= 768){
       this.othermenu = false;
     }else{
       this.othermenu = true;
-    }
+    }*/
     let loading = this.loadingCtrl.create({
       content: 'Please wait...'
     });
@@ -42,7 +42,6 @@ initializeItems() {
  this.userService.getList(res[0].AuthtokenKey, res[0].id).subscribe((response:any)=>{
   this.patientlist = response;
   console.log(response);
- 
 })
 }
 toLowerCase(){

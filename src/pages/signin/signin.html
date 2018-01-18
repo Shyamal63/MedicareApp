@@ -1,14 +1,71 @@
-<ion-list class="formList">
-    <div class="logoDiv">
+
+<!--<ion-content class="loginContent">  
+
+  <ion-grid style="border:1px solid red">
+      <ion-list class="formList">
+    <ion-row>
+      <ion-col>
+    <div class="logoDiv">  
      <ion-navbar><span><img  src="assets/imgs/heartlogo.png"></span></ion-navbar>
       <h4>Care App</h4>
     </div>
+      </ion-col>
+    </ion-row>
     <ion-item>
       <ion-input type="text" placeholder="Username" [(ngModel)]="userid" data-tap-disabled="false" disabled="false"></ion-input>
     </ion-item>  
     <ion-item>
       <ion-input type="password" placeholder="Password" [(ngModel)]="password" data-tap-disabled="false" disabled="false"></ion-input>
     </ion-item>
+    <ion-row>
+      <ion-col>
     <button ion-button block class="submitBtn" (click)="goLogin()">Login</button>
-    <p><span>Register </span> | <span (click)="forgetPrompt()">Forgot password?</span></p>
-  </ion-list>
+  <ion-item style='text-align:center'>
+    <ion-label>Keep me signin</ion-label>
+    <ion-checkbox [(ngModel)]="pepperoni"></ion-checkbox>
+  </ion-item>
+    <p  style='text-align:center'><span>Register </span> | <span (click)="forgetPrompt()" >Forgot password?</span></p>
+      </ion-col>
+    </ion-row>
+  </ion-list> 
+  </ion-grid>
+  
+</ion-content>-->
+
+
+
+<ion-content class="loginContent">  
+  
+  <img  src="assets/imgs/heartlogo.png" style="width:139px;border-radius: 50%;position: absolute;margin-top: 52px;margin-left: 32%;">
+      <ion-grid style="width:80%;margin-top:125px;padding-top:105px; box-shadow: 0px 0px 12px 5px rgba(0, 0, 0, 0.2);">
+          <ion-row>
+              <ion-item>
+               <h3>Care APP </h3>
+              </ion-item> 
+            </ion-row> 
+    <ion-list class="formList">
+
+      <ion-row>
+        <ion-item>
+          <ion-input type="text" placeholder="Username" [(ngModel)]="userid" data-tap-disabled="false" disabled="false"></ion-input>
+        </ion-item> 
+      </ion-row> 
+      <ion-row>
+        <ion-item>
+          <ion-input type="password" placeholder="Password" [(ngModel)]="password" data-tap-disabled="false" disabled="false"></ion-input>
+        </ion-item>
+      </ion-row>
+      <ion-row>
+       <ion-col>
+        <button ion-button block class="submitBtn" (click)="goLogin()">Login</button>
+      <ion-item style='text-align:center'>
+        <ion-label>Keep me signin</ion-label>
+        <ion-checkbox [(ngModel)]="pepperoni"></ion-checkbox>
+      </ion-item>
+        <p  style='text-align:center'><span>Register </span> | <span (click)="forgetPrompt()" >Forgot password?</span></p>
+          </ion-col>
+        </ion-row>
+      </ion-list> 
+      </ion-grid>
+      
+    </ion-content>
